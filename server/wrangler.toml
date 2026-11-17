@@ -1,0 +1,24 @@
+name = "linklock-share"
+main = "src/index.js"
+compatibility_date = "2026-11-17"
+workers_dev = true
+
+[triggers]
+crons = ["17 3 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "linklock-shares"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[secrets]
+required = ["LINKLOCK_MASTER_KEY"]
+
+[[ratelimits]]
+name = "CREATE_RATE_LIMITER"
+namespace_id = "84621017"
+
+[ratelimits.simple]
+limit = 10
+period = 60
